@@ -23,6 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         <h2 className="font-bold">{title}</h2>
+        <p>${price}</p>
       </Link>
     </div>
   );

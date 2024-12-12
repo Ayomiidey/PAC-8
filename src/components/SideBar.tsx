@@ -24,10 +24,12 @@ const SideBar = () => {
   } = useFilter();
   const [categories, setCategories] = useState<string[]>([]);
   const [keywords, setKeywords] = useState<string[]>([
-    "CLOTH",
-    "PLASTIC",
+    "TREND",
+    "WATCH",
     "APPLE",
     "FASHION",
+    "SHOE",
+    "SHIRT",
   ]);
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {

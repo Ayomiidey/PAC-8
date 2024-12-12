@@ -73,14 +73,42 @@ const MainContent = () => {
   };
 
   const filteredProducts = getFilteredProduct();
-  console.log(filteredProducts);
+
+  const totalProduct = 100;
+  const totalPages = totalProduct / itemsPerPage;
+  const handlePageChange = (page: number) => {
+    if (page > 0 && page <= totalPages) setCurrentPage(page);
+  };
+
+  const getPaginationButtons = () => {
+    const buttons: number[] = [];
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+
+    if (currentPage - 2 < 1) {
+      endPage = Math.min(totalPages, endPage + (2 - currentPage - 1));
+    }
+
+    if (currentPage + 2 > totalPages) {
+      startPage = Math.min(1, startPage - (2 - totalPages - currentPage));
+    }
+
+    for (let page = startPage; page <= endPage; page++) {
+      buttons.push(page);
+    }
+
+    return buttons;
+  };
 
   return (
     <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5 ">
       <div className="mb-5">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative mb-5 mt-5">
-            <button className="border px-4 py-2 rounded-full flex items-center">
+            <button
+              className="border px-4 py-2 rounded-full flex items-center"
+              onClick={() => setDropDownOpen(dropDownOpen ? false : true)}
+            >
               <Tally3 className="mr-2" />
 
               {filter === "all"
@@ -122,6 +150,37 @@ const MainContent = () => {
               price={product.price}
             />
           ))}
+        </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            className="border px-4 py-2 mx-2 rounded-full"
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          <div className="flex flex-wrap justify-center">
+            {getPaginationButtons().map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`border px-4 py-2 mx-1 rounded-full ${
+                  page === currentPage ? "bg-black text-white" : ""
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            className="border px-4 py-2 mx-2 rounded-full"
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
         </div>
       </div>
     </section>
