@@ -107,7 +107,7 @@ const MainContent = () => {
           <div className="relative mb-5 mt-5">
             <button
               className="border px-4 py-2 rounded-full flex items-center"
-              onClick={() => setDropDownOpen(dropDownOpen ? false : true)}
+              onClick={() => setDropDownOpen(!dropDownOpen)}
             >
               <Tally3 className="mr-2" />
 
