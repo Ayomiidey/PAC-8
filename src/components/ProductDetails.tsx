@@ -23,7 +23,7 @@ const ProductDetails = () => {
           const data = await response.json();
           setProduct(data);
         } catch (error) {
-          console.error("Error Fetching Data :", error);
+          console.error("Error Fetching Data:", error);
         }
       }
     };
