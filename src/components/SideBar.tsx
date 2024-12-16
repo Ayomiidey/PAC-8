@@ -45,11 +45,17 @@ const SideBar = () => {
   const handleRadioChangeCategory = (category: string) => {
     setSelectedCategory(category);
     setKeyword("");
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
   };
 
   const handleKeyWordClick = (keyword: string) => {
     setKeyword(keyword);
     setSelectedCategory("");
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
   };
 
   const handleResetFilter = () => {
