@@ -19,7 +19,6 @@ const SideBar = () => {
     setMinPrice,
     maxPrice,
     setMaxPrice,
-    keyword,
     setKeyword,
   } = useFilter();
   const [categories, setCategories] = useState<string[]>([]);
@@ -49,6 +48,7 @@ const SideBar = () => {
 
   const handleKeyWordClick = (keyword: string) => {
     setKeyword(keyword);
+    setKeywords(keywords);
   };
 
   const handleResetFilter = () => {
@@ -108,7 +108,7 @@ const SideBar = () => {
         <section>
           <input
             type="text"
-            className="border-2 rounded px-2 sm:mb-0"
+            className="border-2 rounded px-2 mb-2 "
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
