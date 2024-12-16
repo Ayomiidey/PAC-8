@@ -171,35 +171,55 @@ const MainContent = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                className="border px-4 py-2 mx-2 rounded-full"
-                disabled={currentPage === 1}
-              >
-                Previous
-              </button>
+              {/* Previous and Next buttons are hidden on small screens */}
+              <div className="hidden sm:flex justify-between items-center w-full mb-5">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  className="border px-4 py-2 mx-2 rounded-full"
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </button>
 
-              <div className="flex flex-wrap justify-center">
-                {getPaginationButtons().map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`border px-4 py-2 mx-1 rounded-full ${
-                      page === currentPage ? "bg-black text-white" : ""
-                    }`}
-                  >
-                    {page}
-                  </button>
-                ))}
+                <div className="flex flex-wrap justify-center">
+                  {getPaginationButtons().map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => handlePageChange(page)}
+                      className={`border px-4 py-2 mx-1 rounded-full ${
+                        page === currentPage ? "bg-black text-white" : ""
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  className="border px-4 py-2 mx-2 rounded-full"
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </button>
               </div>
 
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                className="border px-4 py-2 mx-2 rounded-full"
-                disabled={currentPage === totalPages}
-              >
-                Next
-              </button>
+              {/* Only page numbers are visible on smaller screens */}
+              <div className="sm:hidden flex justify-center w-full mb-5">
+                <div className="flex flex-wrap justify-center">
+                  {getPaginationButtons().map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => handlePageChange(page)}
+                      className={`border px-4 py-2 mx-1 rounded-full ${
+                        page === currentPage ? "bg-black text-white" : ""
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </>
         )}

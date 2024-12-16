@@ -99,14 +99,17 @@ const ProductDetails = () => {
             <label htmlFor="quantity" className="mr-2 text-lg font-medium">
               Quantity:
             </label>
-            <input
-              type="number"
-              id="quantity"
-              value={quantity}
-              min={1}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-              className="w-16 px-2 py-1 border rounded text-center"
-            />
+            <div className="relative">
+              <input
+                type="number"
+                id="quantity"
+                value={quantity}
+                min={1}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+                className="w-20 sm:w-24 px-3 py-2 border rounded text-center appearance-none focus:outline-none"
+              />
+              {/* You can add the up/down buttons for better control on mobile */}
+            </div>
           </div>
 
           <div className="flex gap-4">
