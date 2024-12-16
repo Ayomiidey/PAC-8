@@ -118,19 +118,28 @@ const MainContent = () => {
             {dropDownOpen && (
               <div className="absolute bg-white border border-gray-300 rounded mt-2 w-40">
                 <button
-                  onClick={() => setFilter("cheap")}
+                  onClick={() => {
+                    setFilter("cheap");
+                    setDropDownOpen(false);
+                  }}
                   className="block px-4 py-2 w-full text-left hover:bg-gray-200"
                 >
                   Cheap
                 </button>
                 <button
-                  onClick={() => setFilter("expensive")}
+                  onClick={() => {
+                    setFilter("expensive");
+                    setDropDownOpen(false);
+                  }}
                   className="block px-4 py-2 w-full text-left hover:bg-gray-200"
                 >
                   Expensive
                 </button>
                 <button
-                  onClick={() => setFilter("popular")}
+                  onClick={() => {
+                    setFilter("popular");
+                    setDropDownOpen(false);
+                  }}
                   className="block px-4 py-2 w-full text-left hover:bg-gray-200"
                 >
                   Popular
