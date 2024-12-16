@@ -44,10 +44,12 @@ const SideBar = () => {
 
   const handleRadioChangeCategory = (category: string) => {
     setSelectedCategory(category);
+    setKeyword("");
   };
 
   const handleKeyWordClick = (keyword: string) => {
     setKeyword(keyword);
+    setSelectedCategory("");
   };
 
   const handleResetFilter = () => {
