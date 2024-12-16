@@ -22,7 +22,7 @@ const SideBar = () => {
     setKeyword,
   } = useFilter();
   const [categories, setCategories] = useState<string[]>([]);
-  const [keywords, setKeywords] = useState<string[]>([
+  const [keywords] = useState<string[]>([
     "TREND",
     "WATCH",
     "APPLE",
@@ -48,7 +48,6 @@ const SideBar = () => {
 
   const handleKeyWordClick = (keyword: string) => {
     setKeyword(keyword);
-    setKeywords(keywords);
   };
 
   const handleResetFilter = () => {
