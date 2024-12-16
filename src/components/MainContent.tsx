@@ -3,6 +3,7 @@ import { useFilter } from "./FilterContext";
 import { Tally3 } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { Product } from "../models/Product";
+import Loading from "./Loading";
 
 const MainContent = () => {
   const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
@@ -11,10 +12,12 @@ const MainContent = () => {
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [dropDownOpen, setDropDownOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 12;
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${
         (currentPage - 1) * itemsPerPage
       }`;
@@ -28,6 +31,8 @@ const MainContent = () => {
         setProducts(data.products);
       } catch (error) {
         console.error("Error fetching data", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -149,49 +154,55 @@ const MainContent = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              image={product.thumbnail}
-              price={product.price}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  title={product.title}
+                  image={product.thumbnail}
+                  price={product.price}
+                />
+              ))}
+            </div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            className="border px-4 py-2 mx-2 rounded-full"
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-
-          <div className="flex flex-wrap justify-center">
-            {getPaginationButtons().map((page) => (
+            <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
               <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`border px-4 py-2 mx-1 rounded-full ${
-                  page === currentPage ? "bg-black text-white" : ""
-                }`}
+                onClick={() => handlePageChange(currentPage - 1)}
+                className="border px-4 py-2 mx-2 rounded-full"
+                disabled={currentPage === 1}
               >
-                {page}
+                Previous
               </button>
-            ))}
-          </div>
 
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            className="border px-4 py-2 mx-2 rounded-full"
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </div>
+              <div className="flex flex-wrap justify-center">
+                {getPaginationButtons().map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`border px-4 py-2 mx-1 rounded-full ${
+                      page === currentPage ? "bg-black text-white" : ""
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                className="border px-4 py-2 mx-2 rounded-full"
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

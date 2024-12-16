@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../models/Product";
+import Loading from "./Loading";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -8,10 +9,12 @@ const ProductDetails = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [mainImage, setMainImage] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
+        setLoading(true);
         try {
           const response = await fetch(`https://dummyjson.com/products/${id}`);
           const data = await response.json();
@@ -19,11 +22,21 @@ const ProductDetails = () => {
           setMainImage(data.images[0]);
         } catch (error) {
           console.error("Error Fetching Data:", error);
+        } finally {
+          setLoading(false);
         }
       }
     };
     fetchData();
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center mx-auto">
+        <Loading />
+      </div>
+    );
+  }
 
   if (!product) {
     return (
