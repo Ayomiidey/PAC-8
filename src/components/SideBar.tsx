@@ -64,6 +64,9 @@ const SideBar = () => {
     setKeyword("");
     setMinPrice(undefined);
     setMaxPrice(undefined);
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
   };
 
   const toggleSidebar = () => {
