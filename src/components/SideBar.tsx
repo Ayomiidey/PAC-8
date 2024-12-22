@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
+import { Link } from "react-router-dom";
 
 interface Product {
   category: string;
@@ -102,6 +103,27 @@ const SideBar: React.FC<SidebarProps> = ({
           <h1 className="text-2xl font-bold">PAC 8</h1>
         </div>
 
+        <nav className="mb-2 lg:hidden">
+          <Link
+            to="/"
+            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
+          >
+            HOME
+          </Link>
+          <Link
+            to="/products"
+            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
+          >
+            PRODUCTS
+          </Link>
+          <Link
+            to="/about"
+            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
+          >
+            ABOUT
+          </Link>
+        </nav>
+
         <section>
           <input
             type="text"
@@ -167,7 +189,10 @@ const SideBar: React.FC<SidebarProps> = ({
       </div>
 
       {isSidebarOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        ></div>
       )}
     </>
   );
