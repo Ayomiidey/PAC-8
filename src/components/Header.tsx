@@ -10,7 +10,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
   return (
     <header className="fixed top-0 left-0 w-full h-[4rem] bg-gray-800 text-white flex items-center justify-between px-6 z-30 shadow-lg">
       <div className="flex items-center">
-        {/* Sidebar Toggle Button */}
         <button
           onClick={onToggleSidebar}
           className="p-2 bg-gray-700 rounded-md lg:hidden"

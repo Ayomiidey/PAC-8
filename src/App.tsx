@@ -3,9 +3,12 @@ import SideBar from "./components/SideBar";
 import MainContent from "./components/MainContent";
 import ProductDetails from "./components/ProductDetails";
 import Header from "./components/Header";
+import { useState } from "react";
 function App() {
-  const toggleSidebar = () => {};
-  const isSidebarOpen = false;
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev: boolean) => !prev);
+  };
 
   return (
     <Router>
@@ -13,7 +16,10 @@ function App() {
         <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
         <div className="flex flex-col lg:flex-row mt-[4rem]">
-          <SideBar />
+          <SideBar
+            setIsSidebarOpen={setIsSidebarOpen}
+            isSidebarOpen={isSidebarOpen}
+          />
 
           <div className="flex-1 ">
             <Routes>

@@ -8,8 +8,15 @@ interface Product {
 interface FetchProduct {
   products: Product[];
 }
+interface SidebarProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: (value: boolean) => void;
+}
 
-const SideBar = () => {
+const SideBar: React.FC<SidebarProps> = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
+}) => {
   const {
     searchQuery,
     setSearchQuery,
@@ -30,7 +37,6 @@ const SideBar = () => {
     "SHOE",
     "SHIRT",
   ]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -69,10 +75,6 @@ const SideBar = () => {
     }
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -91,28 +93,13 @@ const SideBar = () => {
 
   return (
     <>
-      <button
-        onClick={toggleSidebar}
-        className="p-4 bg-gray-800 text-white fixed top-4 left-4 z-20"
-        aria-label="Toggle Sidebar"
-      >
-        {isSidebarOpen ? "✖" : "☰"}
-      </button>
-
       <div
-        className={`fixed  left-0 h-full w-64 bg-white shadow-lg p-5 transform transition-transform duration-300 ${
+        className={`fixed left-0 h-full w-64 bg-white shadow-lg p-5 transform transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 lg:static`}
+        } lg:translate-x-0 lg:static z-20`}
       >
         <div className="flex justify-between items-center mb-10 mt-4">
           <h1 className="text-2xl font-bold">PAC 8</h1>
-          <button
-            onClick={toggleSidebar}
-            className="text-xl font-bold text-gray-800 lg:hidden"
-            aria-label="Close Sidebar"
-          >
-            ✖
-          </button>
         </div>
 
         <section>
@@ -180,10 +167,7 @@ const SideBar = () => {
       </div>
 
       {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"
-          onClick={toggleSidebar}
-        ></div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-10 lg:hidden"></div>
       )}
     </>
   );
