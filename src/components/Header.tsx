@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import { useAppSelector } from "../redux/hooks";
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
+  const totalItem = useAppSelector((state) => state.cart.totalQuantity);
+
   return (
     <header className="fixed top-0 left-0 w-full h-[4rem] bg-gray-800 text-white flex items-center justify-between px-6 z-30 shadow-lg">
       <div className="flex items-center">
@@ -37,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
 
       <Link to="/cart" className="p-2 flex">
         <ShoppingCart className="w-6 h-6" />
-        <span>23</span>
+        {totalItem > 0 && <span>{totalItem}</span>}
       </Link>
     </header>
   );

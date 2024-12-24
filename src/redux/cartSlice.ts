@@ -20,7 +20,24 @@ const initialState: Cart = {
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      const product = action.payload;
+
+      const existingItem = state.item.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+        existingItem.price += product.price;
+      } else {
+        state.item.push({ ...product, quantity: 1, totalPrice: product.price });
+      }
+
+      state.totalPrice += product.price;
+      state.totalQuantity += 1;
+    },
+  },
 });
 
+export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;
