@@ -35,9 +35,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
         </Link>
       </nav>
 
-      {/* Cart Icon */}
-      <Link to="/cart" className="p-2">
+      <Link to="/cart" className="p-2 flex">
         <ShoppingCart className="w-6 h-6" />
+        <span>23</span>
       </Link>
     </header>
   );

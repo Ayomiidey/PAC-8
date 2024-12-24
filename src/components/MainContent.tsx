@@ -4,10 +4,17 @@ import { Tally3 } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { Product } from "../models/Product";
 import Loading from "./Loading";
+import SearchBar from "./SearchBar";
 
 const MainContent = () => {
-  const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
-    useFilter();
+  const {
+    searchQuery,
+    setSearchQuery,
+    selectedCategory,
+    minPrice,
+    maxPrice,
+    keyword,
+  } = useFilter();
   const [products, setProducts] = useState<Product[]>([]);
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
@@ -108,8 +115,13 @@ const MainContent = () => {
   return (
     <section className="p-4 w-full sm:w-[90%] mx-auto transition-all">
       <div className="mb-5">
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <div className="relative mb-5 sm:mb-0">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+          <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+
+          <div className="relative">
             <button
               className="border px-4 py-2 rounded-full flex items-center mb-5"
               onClick={() => setDropDownOpen(!dropDownOpen)}
