@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useAppSelector } from "../redux/hooks";
 
@@ -8,6 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
+  const navigate = useNavigate();
   const totalItem = useAppSelector((state) => state.cart.totalQuantity);
 
   return (
@@ -39,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar, isSidebarOpen }) => {
       </nav>
 
       <Link to="/cart" className="p-2 flex">
-        <ShoppingCart className="w-6 h-6" />
+        <ShoppingCart className="w-6 h-6" onClick={() => navigate("/cart")} />
         {totalItem > 0 && <span>{totalItem}</span>}
       </Link>
     </header>

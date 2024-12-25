@@ -3,6 +3,7 @@ import SideBar from "./components/SideBar";
 import MainContent from "./components/MainContent";
 import ProductDetails from "./components/ProductDetails";
 import Header from "./components/Header";
+import Cart from "./components/cart";
 import { useState } from "react";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,6 +26,7 @@ function App() {
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </div>
         </div>
