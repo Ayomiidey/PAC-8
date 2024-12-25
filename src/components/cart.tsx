@@ -1,13 +1,16 @@
 import { useAppSelector } from "../redux/hooks";
-
+import { removeFromCart } from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
 const Cart = () => {
   const { item, totalQuantity, totalPrice } = useAppSelector(
     (state) => state.cart
   );
 
-  //   const handleRemove = (id) => {
-  //     dispatch(removeFromCart(id));
-  //   };
+  const dispatch = useDispatch();
+
+  const handleRemove = (id: number) => {
+    dispatch(removeFromCart(id));
+  };
 
   //   const handleQuantityChange = (id, quantity) => {
   //     if (quantity > 0) {
@@ -26,9 +29,9 @@ const Cart = () => {
           <h3 className="text-lg font-bold">{item.title}</h3>
           <p>Price: ${item.price}</p>
           <p>Quantity: {item.quantity}</p>
-          {/* <p>Total: ${item.totalPrice.toFixed(2)}</p> */}
+          <p>Total: ${item.price.toFixed(2)}</p>
           <button
-            // onClick={() => handleRemove(item.id)}
+            onClick={() => handleRemove(item.id)}
             className="bg-red-500 text-white px-4 py-2 rounded"
           >
             Remove

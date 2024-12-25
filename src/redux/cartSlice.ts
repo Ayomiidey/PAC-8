@@ -36,8 +36,18 @@ const cartSlice = createSlice({
       state.totalPrice += product.price;
       state.totalQuantity += 1;
     },
+    removeFromCart: (state, action) => {
+      const productId = action.payload;
+
+      const existingItem = state.item.find((item) => item.id === productId);
+      if (existingItem) {
+        state.totalPrice -= existingItem.price;
+        state.totalQuantity -= existingItem.quantity;
+      }
+      state.item = state.item.filter((item) => item.id !== productId);
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
