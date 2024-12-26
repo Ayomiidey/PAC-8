@@ -6,6 +6,7 @@ interface Cart {
     title: string;
     price: number;
     quantity: number;
+    totalPrice: number;
   }[];
   totalQuantity: number;
   totalPrice: number;
@@ -28,7 +29,7 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity += 1;
-        existingItem.price += product.price;
+        existingItem.totalPrice += product.price;
       } else {
         state.item.push({ ...product, quantity: 1, totalPrice: product.price });
       }
@@ -46,8 +47,47 @@ const cartSlice = createSlice({
       }
       state.item = state.item.filter((item) => item.id !== productId);
     },
+    increaseQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const existingItem = state.item.find((item) => item.id === productId);
+
+      if (existingItem) {
+        existingItem.quantity++;
+        existingItem.totalPrice += existingItem.price;
+        state.totalQuantity++;
+        state.totalPrice += existingItem.price;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const existingItem = state.item.find((item) => item.id === productId);
+
+      if (existingItem && existingItem.quantity > 1) {
+        existingItem.quantity--;
+        existingItem.totalPrice -= existingItem.price;
+        state.totalQuantity--;
+        state.totalPrice -= existingItem.price;
+      } else if (existingItem && existingItem.quantity === 1) {
+        state.item = state.item.filter((item) => item.id !== productId);
+        state.totalQuantity--;
+        state.totalPrice -= existingItem.price;
+      }
+    },
+    clearCart: (state) => {
+      state.item = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;
