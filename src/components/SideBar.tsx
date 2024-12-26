@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 interface Product {
   category: string;
@@ -39,6 +39,9 @@ const SideBar: React.FC<SidebarProps> = ({
     "SHIRT",
   ]);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setMinPrice(value ? parseFloat(value) : undefined);
@@ -55,6 +58,9 @@ const SideBar: React.FC<SidebarProps> = ({
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
     }
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
   };
 
   const handleKeyWordClick = (keyword: string) => {
@@ -62,6 +68,9 @@ const SideBar: React.FC<SidebarProps> = ({
     setSelectedCategory("");
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
     }
   };
 
@@ -73,6 +82,9 @@ const SideBar: React.FC<SidebarProps> = ({
     setMaxPrice(undefined);
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
     }
   };
 
