@@ -107,7 +107,7 @@ const SideBar: React.FC<SidebarProps> = ({
   return (
     <>
       <div
-        className={`fixed left-0 h-full w-64 bg-white shadow-lg p-5 transform transition-transform duration-300 ${
+        className={`fixed left-0 h-full w-64 bg-white shadow-lg p-5 transform transition-transform duration-300 overflow-y-auto ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:static z-20`}
       >
