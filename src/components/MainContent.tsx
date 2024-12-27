@@ -89,7 +89,10 @@ const MainContent = () => {
   const totalProduct = 100;
   const totalPages = totalProduct / itemsPerPage;
   const handlePageChange = (page: number) => {
-    if (page > 0 && page <= totalPages) setCurrentPage(page);
+    if (!loading && page > 0 && page <= totalPages) {
+      setLoading(true);
+      setCurrentPage(page);
+    }
   };
 
   const getPaginationButtons = () => {

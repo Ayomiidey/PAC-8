@@ -88,6 +88,21 @@ const SideBar: React.FC<SidebarProps> = ({
     }
   };
 
+  const handleHome = () => {
+    navigate("/");
+    setSearchQuery("");
+    setSelectedCategory("");
+    setKeyword("");
+    setMinPrice(undefined);
+    setMaxPrice(undefined);
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -119,6 +134,7 @@ const SideBar: React.FC<SidebarProps> = ({
           <Link
             to="/"
             className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
+            onClick={() => handleHome()}
           >
             HOME
           </Link>
