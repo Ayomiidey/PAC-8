@@ -139,6 +139,15 @@ const MainContent = () => {
               <div className="absolute bg-white border border-gray-300 rounded mt-2 w-40">
                 <button
                   onClick={() => {
+                    setFilter("all");
+                    setDropDownOpen(false);
+                  }}
+                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => {
                     setFilter("cheap");
                     setDropDownOpen(false);
                   }}
