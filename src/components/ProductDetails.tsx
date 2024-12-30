@@ -108,7 +108,6 @@ const ProductDetails = () => {
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 className="w-20 sm:w-24 px-3 py-2 border rounded text-center appearance-none focus:outline-none"
               />
-              {/* You can add the up/down buttons for better control on mobile */}
             </div>
           </div>
 
