@@ -195,7 +195,6 @@ const MainContent = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
-              {/*NOTE: This is to make Previous and Next buttons hidden on small screens */}
               <div className="hidden sm:flex justify-between items-center w-full mb-5">
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
@@ -228,7 +227,6 @@ const MainContent = () => {
                 </button>
               </div>
 
-              {/*NOTE: This is to make Only page numbers visible on smaller screens */}
               <div className="sm:hidden flex justify-center w-full mb-5">
                 <div className="flex flex-wrap justify-center">
                   {getPaginationButtons().map((page) => (
