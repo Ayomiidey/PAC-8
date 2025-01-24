@@ -10,16 +10,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setSearchQuery,
 }) => {
   return (
-    // <div className="w-full  flex justify-center mb-4 sm:mb-0">
-    //   <input
-    //     type="text"
-    //     className="border px-4 py-2 rounded-lg w-full sm:w-96"
-    //     placeholder="Search products..."
-    //     value={searchQuery}
-    //     onChange={(e) => setSearchQuery(e.target.value)}
-    //   />
-    // </div>
-
     <div className="w-full flex justify-center mb-4 sm:mb-0">
       <input
         type="text"

@@ -41,9 +41,9 @@ function App() {
         <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <div className="pt-[4rem]">
           <Routes>
-            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route
-              path="/"
+              path="/products"
               element={
                 <ProductLayout
                   setIsSidebarOpen={setIsSidebarOpen}
