@@ -58,8 +58,8 @@ const SideBar: React.FC<SidebarProps> = ({
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
     }
-    if (location.pathname !== "/") {
-      navigate("/");
+    if (location.pathname !== "/products") {
+      navigate("/products");
     }
   };
 
@@ -69,8 +69,8 @@ const SideBar: React.FC<SidebarProps> = ({
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
     }
-    if (location.pathname !== "/") {
-      navigate("/");
+    if (location.pathname !== "/products") {
+      navigate("/products");
     }
   };
 
@@ -83,8 +83,8 @@ const SideBar: React.FC<SidebarProps> = ({
     if (window.innerWidth < 1024) {
       setIsSidebarOpen(false);
     }
-    if (location.pathname !== "/") {
-      navigate("/");
+    if (location.pathname !== "/products") {
+      navigate("/products");
     }
   };
 
