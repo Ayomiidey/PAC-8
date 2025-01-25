@@ -103,7 +103,7 @@ const ProductDetails = () => {
               Price: <span className="text-green-600">${product.price}</span>
             </p>
             <p className="text-lg font-semibold mt-2">
-              Rating:{" "}
+              Rating:
               <span className="text-yellow-500">{product.rating} ★</span>
             </p>
           </div>
