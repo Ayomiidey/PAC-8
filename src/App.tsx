@@ -10,9 +10,9 @@ import { useState } from "react";
 import MainContent from "./components/MainContent";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const toggleSidebar = () => {
-    setIsSidebarOpen((prev: boolean) => !prev);
-  };
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen((prev: boolean) => !prev);
+  // };
 
   return (
     // <Router>
@@ -38,8 +38,9 @@ function App() {
 
     <Router>
       <div className="h-screen">
-        <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-        <div className="pt-[4rem]">
+        {/* <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} /> */}
+        <Header />
+        <div className="pt-[1rem]">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route

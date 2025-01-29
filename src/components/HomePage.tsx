@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import shoppingPics from "../assets/images/shoppingPics.jpeg"; // Adjust the path
+import homepage1 from "../assets/images/homepage1.jpg"; // Adjust the path
 
 interface Product {
   category: string;
@@ -29,37 +29,41 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="bg-white mt-2 px-4 md:px-16 lg:px-24 ">
-      <div className="container mx-auto py-4 flex flex-col md:flex-row space-x-2">
-        <div className="w-full md:w-3/12">
-          <div className="bg-red-600 text-white text-xs font-bold px-2 py-2.5">
-            SHOP BY CATEGORIES
-          </div>
-          <ul className="space-y-4 bg-gray-100 p-3 border">
-            {categories.map((category, index) => (
-              <li key={index} className="flex items-center text-sm font-medium">
-                <div className="w-2 h-2 border border-red-500 rounded-full mr-2"></div>
-                {category}
-              </li>
-            ))}
-          </ul>
+    <div className="w-full h-screen px-5">
+      <div className="w-full h-[530px]  relative overflow-hidden">
+        <img
+          src={homepage1}
+          alt="Homepage Carousel"
+          className="w-full h-full object-cover object-top "
+        />
+        <div className="absolute left-8 top-1/2 -translate-y-1/2">
+          <h2 className="text-3xl font-bold text-white">WELCOME TO PAC 8</h2>
+          <p className="text-xl mt-2.5 font-bold text-gray-200">
+            MILLIONS+ PRODUCTS
+          </p>
+          <button className="bg-red-600 px-8 py-1.5 text-white mt-4 hover:bg-red-700 transform transition-transform duration-300 hover:scale-105">
+            SHOP NOW
+          </button>
         </div>
+      </div>
+      <div className="w-full mt-16 px-10">
+        <h1 className="font-mono text-3xl mb-6">Shop by Categories</h1>
 
-        <div className="w-full md:w-9/12 mt-8 md:mt-0 h-96 relative">
-          <img
-            src={shoppingPics}
-            alt="ShoppingPics"
-            className="h-full w-full"
-          />
-          <div className="absolute top-16 left-8">
-            <h2 className="text-3xl font-bold">WELCOME TO PAC 8</h2>
-            <p className="text-xl mt-2.5 font-bold text-gray-800">
-              MILLIONS+ PRODUCTS
-            </p>
-            <button className="bg-red-600 px-8 py-1.5 text-white mt-4 hover:bg-red-700 transform transition-transform duration-300 hover:scale-105">
-              SHOP NOW
-            </button>
-          </div>
+        <div className="w-full flex justify-center items-center gap-6 flex-wrap">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="w-64 h-80 bg-white shadow-lg rounded-lg overflow-hidden flex flex-col items-center justify-between"
+            >
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center relative">
+                <span className="text-gray-500">Image Here</span>
+              </div>
+
+              <button className="px-16 mt-[16rem] rounded-md absolute bg-red-600 text-white py-2 text-center font-semibold hover:bg-red-700 transition">
+                {category}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
