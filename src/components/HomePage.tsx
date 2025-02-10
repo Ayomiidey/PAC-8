@@ -249,7 +249,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState<
     { name: string; image: string }[]
   >([]);
-  const [popularProduct, setPopularProduct] = useState<Product[]>([]);
+  // const [popularProduct, setPopularProduct] = useState<Product[]>([]);
 
   const navigate = useNavigate();
 
@@ -276,10 +276,10 @@ const HomePage = () => {
           }
         });
 
-        const popular = data.products.sort((a, b) => b.rating - a.rating);
+        // const popular = data.products.sort((a, b) => b.rating - a.rating);
 
         setCategories(uniqueCategories);
-        setPopularProduct(popular);
+        // setPopularProduct(popular);
       } catch (error) {
         console.error("Error fetching categories", error);
       }
@@ -350,7 +350,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="mt-10 mx-[10rem] ">
+      {/* <div className="mt-10 mx-[10rem] ">
         <h1 className="text-center font-sans text-3xl mb-6">Our BestSeller</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -378,7 +378,7 @@ const HomePage = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
