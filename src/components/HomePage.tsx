@@ -321,7 +321,6 @@ const HomePage = () => {
           Shop by Categories
         </h1>
 
-        {/* Responsive Category Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-center lg:mx-[10rem]">
           {categories.map((category, index) => (
             <div
@@ -336,7 +335,6 @@ const HomePage = () => {
                 />
               </div>
 
-              {/* Category Name Button */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[80%]">
                 <button
                   className="w-full px-6 py-2 rounded-md bg-red-600 text-white font-semibold hover:bg-red-700 transition"
