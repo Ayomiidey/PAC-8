@@ -51,12 +51,12 @@ const ContactUs: React.FC = () => {
 
               <div className="space-y-6">
                 {[
-                  { icon: Mail, title: "Email", content: "info@pac8.com" },
-                  { icon: Phone, title: "Phone", content: "+1 (555) 123-4567" },
+                  { icon: Mail, title: "Email", content: "pac8now@gmail.com" },
+                  { icon: Phone, title: "Phone", content: "+2348144087702" },
                   {
                     icon: MapPin,
                     title: "Address",
-                    content: "123 Packaging Street, New York, NY 10001",
+                    content: "123 Packaging Street, Ikeja, LA 10001",
                   },
                   {
                     icon: Clock,

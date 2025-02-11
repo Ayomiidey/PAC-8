@@ -56,8 +56,8 @@ const Header = () => {
   return (
     <div>
       <div className="w-full h-12 text-center text-xs bg-purple-400 text-white flex flex-col justify-center items-center font-medium">
-        <p>Order now & we&apos;ll post it today</p>
-        <p>1st class, Express & Guaranteed Tracked options available.</p>
+        <p>Place your order now, and we’ll ship it out today!</p>
+        <p>Fast, tracked, and express delivery options available.</p>
       </div>
 
       <nav className="bg-white">
