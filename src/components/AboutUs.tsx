@@ -67,7 +67,6 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
       <div className="relative bg-purple-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
@@ -77,10 +76,8 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Team Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 gap-16">
-          {/* First Team Member */}
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <div className="w-48 h-48 md:w-64 md:h-64 relative">
@@ -104,7 +101,6 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* Second Team Member */}
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <div className="w-48 h-48 md:w-64 md:h-64 relative">
@@ -129,7 +125,6 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* Mission Statement */}
         <div className="mt-24 text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
           <p className="text-xl text-gray-600 leading-relaxed">
@@ -142,7 +137,6 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Values Section */}
         <div className="mt-24 grid md:grid-cols-3 gap-8 mb-24">
           <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Innovation</h3>
@@ -187,7 +181,6 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* Perfect For Section */}
         <div>
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Perfect For

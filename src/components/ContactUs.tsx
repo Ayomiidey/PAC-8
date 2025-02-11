@@ -31,7 +31,7 @@ const ContactUs: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-blue-600 text-white">
+      <div className="bg-purple-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
@@ -43,7 +43,6 @@ const ContactUs: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8">
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -79,7 +78,6 @@ const ContactUs: React.FC = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
