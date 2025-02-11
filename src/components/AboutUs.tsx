@@ -1,3 +1,5 @@
+import quadri from "../assets/images/quadri.jpg";
+
 const AboutUs = () => {
   const services = [
     {
@@ -83,7 +85,7 @@ const AboutUs = () => {
               <div className="w-48 h-48 md:w-64 md:h-64 relative">
                 <div className="absolute inset-0 bg-blue-100 rounded-full"></div>
                 <img
-                  src="/api/placeholder/600/600"
+                  src={quadri}
                   alt="Team Member 1"
                   className="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
                 />
