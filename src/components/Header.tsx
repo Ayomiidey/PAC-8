@@ -55,7 +55,7 @@ import pac8Logo from "../assets/images/pac8Logo.png";
 const Header = () => {
   return (
     <div>
-      <div className="w-full h-12 text-center text-xs bg-orange-500 text-white flex flex-col justify-center items-center font-medium">
+      <div className="w-full h-12 text-center text-xs bg-purple-400 text-white flex flex-col justify-center items-center font-medium">
         <p>Order now & we&apos;ll post it today</p>
         <p>1st class, Express & Guaranteed Tracked options available.</p>
       </div>
@@ -96,11 +96,11 @@ const Header = () => {
           <Link to="/products" className="hover:underline">
             Shop
           </Link>
-          <Link to="/contact" className="hover:underline">
-            Contact
+          <Link to="/contactUs" className="hover:underline">
+            Contact Us
           </Link>
           <Link to="/about" className="hover:underline">
-            About
+            About Us
           </Link>
         </div>
       </nav>

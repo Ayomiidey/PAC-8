@@ -9,6 +9,7 @@ import ProductLayout from "./components/ProductLayout";
 import { useState } from "react";
 import MainContent from "./components/MainContent";
 import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // const toggleSidebar = () => {
@@ -58,6 +59,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/contactUs" element={<ContactUs />} />
           </Routes>
         </div>
       </div>
