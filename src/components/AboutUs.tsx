@@ -108,7 +108,7 @@ const AboutUs = () => {
               <div className="w-48 h-48 md:w-64 md:h-64 relative">
                 <div className="absolute inset-0 bg-blue-100 rounded-full"></div>
                 <img
-                  src="/api/placeholder/600/600"
+                  src=""
                   alt="Team Member 2"
                   className="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
                 />
@@ -117,7 +117,7 @@ const AboutUs = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Ire Uthman
             </h3>
-            <p className="text-lg text-blue-600 mb-4">Co-Founder & CTO</p>
+            <p className="text-lg text-blue-600 mb-4">Co-Founder</p>
             <p className="text-gray-600 leading-relaxed max-w-md mx-auto">
               With over a decade of experience in the industry, I'm passionate
               about innovation and creating solutions that make a difference. I
