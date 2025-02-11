@@ -50,6 +50,7 @@
 
 import { Link } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import pac8Logo from "../assets/images/pac8Logo.png";
 
 const Header = () => {
   return (
@@ -61,9 +62,12 @@ const Header = () => {
 
       <nav className="bg-white">
         <div className="mx-auto px-4 md:px-16 lg:px-24 py-4 flex justify-between items-center">
-          <div className="text-lg font-bold">
-            <Link to="/">PAC 8</Link>
-          </div>
+          <Link to="/">
+            <div className="text-lg font-bold">
+              <img src={pac8Logo} alt="Logo" className="h-[70px] w-auto" />
+            </div>
+          </Link>
+
           <div className="relative flex-1 mx-4">
             <form>
               <input

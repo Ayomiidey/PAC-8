@@ -295,7 +295,6 @@ const HomePage = () => {
 
   return (
     <div className="w-full">
-      {/* Hero Section */}
       <div className="relative w-full h-[530px] overflow-hidden">
         <img
           src={homepage1}
@@ -315,7 +314,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Shop by Categories */}
       <div className="w-full mt-12 px-6">
         <h1 className="text-center font-sans text-3xl mb-6">
           Shop by Categories
