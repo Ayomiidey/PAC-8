@@ -96,11 +96,11 @@ const Header = () => {
           <Link to="/products" className="hover:underline">
             Shop
           </Link>
-          <Link to="/contactUs" className="hover:underline">
-            Contact Us
-          </Link>
           <Link to="/about" className="hover:underline">
             About Us
+          </Link>
+          <Link to="/contactUs" className="hover:underline">
+            Contact Us
           </Link>
         </div>
       </nav>
