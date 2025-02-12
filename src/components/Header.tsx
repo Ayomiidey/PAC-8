@@ -49,10 +49,15 @@
 // export default Header;
 
 import { Link } from "react-router-dom";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
 import pac8Logo from "../assets/images/pac8Logo.png";
-
+import { useFilter } from "./FilterContext";
+import SearchBar from "./SearchBar";
+import { useAppSelector } from "../redux/hooks";
 const Header = () => {
+  const { searchQuery, setSearchQuery } = useFilter();
+
+  const totalItem = useAppSelector((state) => state.cart.totalQuantity);
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
@@ -70,18 +75,19 @@ const Header = () => {
             </Link>
 
             <div className="relative flex-1 mx-4">
-              <form>
-                <input
-                  type="text"
-                  placeholder="Search Product"
-                  className="w-full border py-2 px-4"
-                />
-                <FaSearch className="absolute top-3 right-3 text-red-500" />
-              </form>
+              <SearchBar
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
             </div>
             <div className="flex items-center space-x-4">
-              <Link to="/cart">
+              <Link to="/cart" className="relative inline-block">
                 <FaShoppingCart className="text-lg" />
+                {totalItem > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItem}
+                  </span>
+                )}
               </Link>
               <button className="hidden md:block">Login | Register</button>
               <button className="block md:hidden">
