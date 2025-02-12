@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-hot-toast";
 
 interface Cart {
   item: {
@@ -24,18 +25,41 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload;
-
       const existingItem = state.item.find((item) => item.id === product.id);
 
       if (existingItem) {
-        existingItem.quantity += 1;
-        existingItem.totalPrice += product.price;
-      } else {
-        state.item.push({ ...product, quantity: 1, totalPrice: product.price });
+        // If item already exists, show notification and return without making changes
+        toast("Product already exists in cart", {
+          icon: "ⓘ",
+          duration: 5000,
+          position: "top-center",
+          style: {
+            background: "#EF4444", // Red background for warning
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "8px",
+          },
+        });
+        return;
       }
 
+      // If item doesn't exist, add it to cart with quantity 1
+      state.item.push({ ...product, quantity: 1, totalPrice: product.price });
       state.totalPrice += product.price;
       state.totalQuantity += 1;
+
+      // Show success notification
+      toast("Added item to cart", {
+        icon: "🛍️",
+        duration: 2000,
+        position: "top-center",
+        style: {
+          background: "#60A5FA",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+        },
+      });
     },
     removeFromCart: (state, action) => {
       const productId = action.payload;

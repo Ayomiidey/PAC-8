@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         className="bg-purple-800 text-white px-4 py-2 rounded mt-2"
         onClick={() => {
           handleAddToCart();
-          alert(` ${product.title} added to the cart!`);
+          // alert(` ${product.title} added to the cart!`);
         }}
       >
         Add to Cart

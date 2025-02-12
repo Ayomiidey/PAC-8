@@ -59,7 +59,7 @@ const Cart = () => {
         <h2 className="text-xl font-bold mb-4">Summary</h2>
         <p>Total Items: {totalQuantity}</p>
         <p>Total Price: ${totalPrice.toFixed(2)}</p>
-        <button className="bg-green-500 text-white w-full py-2 mt-4 rounded">
+        <button className="bg-purple-800 text-white w-full py-2 mt-4 rounded">
           Proceed to Checkout
         </button>
         <div className="mt-4">

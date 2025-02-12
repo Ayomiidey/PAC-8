@@ -50,7 +50,7 @@
 
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
-import pac8Logo from "../assets/images/pac8Logo.png";
+import logoPac8 from "../assets/images/logoPac8.jpg";
 import { useFilter } from "./FilterContext";
 import SearchBar from "./SearchBar";
 import { useAppSelector } from "../redux/hooks";
@@ -70,7 +70,7 @@ const Header = () => {
           <div className="mx-auto px-4 md:px-16 lg:px-24 py-4 flex justify-between items-center">
             <Link to="/">
               <div className="text-lg font-bold">
-                <img src={pac8Logo} alt="Logo" className="h-[70px] w-auto" />
+                <img src={logoPac8} alt="Logo" className="h-[70px] w-auto" />
               </div>
             </Link>
 
@@ -84,7 +84,7 @@ const Header = () => {
               <Link to="/cart" className="relative inline-block">
                 <FaShoppingCart className="text-lg" />
                 {totalItem > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
                     {totalItem}
                   </span>
                 )}
