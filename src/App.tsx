@@ -10,11 +10,13 @@ import { useState } from "react";
 import MainContent from "./components/MainContent";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
+import { Toaster } from "react-hot-toast";
+
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  // const toggleSidebar = () => {
-  //   setIsSidebarOpen((prev: boolean) => !prev);
-  // };
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev: boolean) => !prev);
+  };
 
   return (
     // <Router>
@@ -41,7 +43,9 @@ function App() {
     <Router>
       <div className="h-screen">
         {/* <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} /> */}
+
         <Header />
+        <Toaster position="top-center" reverseOrder={false} />
         <div className="pt-[1rem]">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -54,7 +58,10 @@ function App() {
                 />
               }
             >
-              <Route index element={<MainContent />} />
+              <Route
+                index
+                element={<MainContent onToggleSidebar={toggleSidebar} />}
+              />
             </Route>
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />

@@ -28,37 +28,20 @@ const cartSlice = createSlice({
       const existingItem = state.item.find((item) => item.id === product.id);
 
       if (existingItem) {
-        // If item already exists, show notification and return without making changes
-        toast("Product already exists in cart", {
-          icon: "ⓘ",
-          duration: 5000,
+        toast.error(`${product.title} already exists in cart"`, {
+          duration: 3000,
           position: "top-center",
-          style: {
-            background: "#EF4444", // Red background for warning
-            color: "#fff",
-            padding: "16px",
-            borderRadius: "8px",
-          },
         });
         return;
       }
 
-      // If item doesn't exist, add it to cart with quantity 1
       state.item.push({ ...product, quantity: 1, totalPrice: product.price });
       state.totalPrice += product.price;
       state.totalQuantity += 1;
 
-      // Show success notification
-      toast("Added item to cart", {
-        icon: "🛍️",
-        duration: 2000,
+      toast.success(`${product.title} added to the cart! 🛍️`, {
+        duration: 1000,
         position: "top-center",
-        style: {
-          background: "#60A5FA",
-          color: "#fff",
-          padding: "16px",
-          borderRadius: "8px",
-        },
       });
     },
     removeFromCart: (state, action) => {

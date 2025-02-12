@@ -126,10 +126,6 @@ const SideBar: React.FC<SidebarProps> = ({
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:static z-20`}
       >
-        <div className="flex justify-between items-center mb-10 mt-4">
-          <h1 className="text-2xl font-bold">PAC 8</h1>
-        </div>
-
         <nav className="mb-2 lg:hidden">
           <Link
             to="/"

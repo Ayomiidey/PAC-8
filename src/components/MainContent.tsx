@@ -5,7 +5,11 @@ import ProductCard from "./ProductCard";
 import { Product } from "../models/Product";
 import Loading from "./Loading";
 
-const MainContent = () => {
+interface mainProps {
+  onToggleSidebar: () => void;
+}
+
+const MainContent: React.FC<mainProps> = ({ onToggleSidebar }) => {
   const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
     useFilter();
   const [products, setProducts] = useState<Product[]>([]);
@@ -115,7 +119,8 @@ const MainContent = () => {
           <div className="relative">
             <button
               className="border px-4 py-2 rounded-full flex items-center mb-5"
-              onClick={() => setDropDownOpen(!dropDownOpen)}
+              // onClick={() => setDropDownOpen(!dropDownOpen)}
+              onClick={onToggleSidebar}
             >
               <Tally3 className="mr-2" />
               {filter === "all"
