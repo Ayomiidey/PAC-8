@@ -90,7 +90,7 @@ const HomePage = () => {
           Shop by Categories
         </h1>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-center lg:mx-[10rem]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-5 justify-center lg:mx-[10rem]">
           {categories.map((category, index) => (
             <div
               key={index}

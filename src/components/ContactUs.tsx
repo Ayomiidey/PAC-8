@@ -51,8 +51,30 @@ const ContactUs: React.FC = () => {
 
               <div className="space-y-6">
                 {[
-                  { icon: Mail, title: "Email", content: "pac8now@gmail.com" },
-                  { icon: Phone, title: "Phone", content: "+2348144087702" },
+                  {
+                    icon: Mail,
+                    title: "Email",
+                    content: (
+                      <a
+                        href="mailto:info@pac8.edu"
+                        className="hover:text-slate-500 transition-colors duration-200"
+                      >
+                        Email: pac8now@gmail.com
+                      </a>
+                    ),
+                  },
+                  {
+                    icon: Phone,
+                    title: "Phone",
+                    content: (
+                      <a
+                        href="tel:+2348144087702"
+                        className="hover:text-slate-500 transition-colors duration-200"
+                      >
+                        Phone: +2348144087702
+                      </a>
+                    ),
+                  },
                   {
                     icon: MapPin,
                     title: "Address",
