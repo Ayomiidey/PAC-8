@@ -97,20 +97,20 @@ const SideBar: React.FC<SidebarProps> = ({
     }
   };
 
-  const handleHome = () => {
-    navigate("/");
-    setSearchQuery("");
-    setSelectedCategory("");
-    setKeyword("");
-    setMinPrice(undefined);
-    setMaxPrice(undefined);
-    if (window.innerWidth < 1024) {
-      setIsSidebarOpen(false);
-    }
-    if (location.pathname !== "/") {
-      navigate("/");
-    }
-  };
+  // const handleHome = () => {
+  //   navigate("/");
+  //   setSearchQuery("");
+  //   setSelectedCategory("");
+  //   setKeyword("");
+  //   setMinPrice(undefined);
+  //   setMaxPrice(undefined);
+  //   if (window.innerWidth < 1024) {
+  //     setIsSidebarOpen(false);
+  //   }
+  //   if (location.pathname !== "/") {
+  //     navigate("/");
+  //   }
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
