@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-white text-lg font-semibold">PAC-8</h3>
             <p className="text-sm">
-              Celebrating excellence in collegiate athletics since 1915.
+              Pack it, Pack More. <br /> since 2024.
             </p>
             <div className="flex space-x-4">
               <a

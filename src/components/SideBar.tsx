@@ -241,7 +241,7 @@ const SideBar: React.FC<SidebarProps> = ({
           </div>
           <button
             onClick={handleResetFilter}
-            className="w-full mb-[8rem] sm:mb-[15rem] py-2 bg-black text-white rounded mt-5"
+            className="w-full mb-[11rem] py-2 bg-black text-white rounded mt-5"
           >
             Reset Filter
           </button>
