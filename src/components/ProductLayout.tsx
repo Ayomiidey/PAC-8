@@ -11,7 +11,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
   setIsSidebarOpen,
 }) => {
   return (
-    <div className="h-screen">
+    <div className="flex-1">
       <div className="flex flex-col lg:flex-row">
         <SideBar
           setIsSidebarOpen={setIsSidebarOpen}

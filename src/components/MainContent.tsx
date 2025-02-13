@@ -10,12 +10,10 @@ interface mainProps {
 }
 
 const MainContent: React.FC<mainProps> = ({ onToggleSidebar }) => {
-  const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
+  const { searchQuery, selectedCategory, minPrice, maxPrice, keyword, filter } =
     useFilter();
   const [products, setProducts] = useState<Product[]>([]);
-  const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const [dropDownOpen, setDropDownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 12;
 
@@ -118,7 +116,7 @@ const MainContent: React.FC<mainProps> = ({ onToggleSidebar }) => {
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
           <div className="relative">
             <button
-              className="border px-4 py-2 rounded-full flex items-center mb-5"
+              className="border px-4 py-2 lg:hidden rounded-full flex items-center mb-5"
               // onClick={() => setDropDownOpen(!dropDownOpen)}
               onClick={onToggleSidebar}
             >
@@ -127,47 +125,6 @@ const MainContent: React.FC<mainProps> = ({ onToggleSidebar }) => {
                 ? "Filter"
                 : filter.charAt(0).toLowerCase() + filter.slice(1)}
             </button>
-
-            {dropDownOpen && (
-              <div className="absolute bg-white border border-gray-300 rounded mt-2 w-40">
-                <button
-                  onClick={() => {
-                    setFilter("all");
-                    setDropDownOpen(false);
-                  }}
-                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
-                >
-                  All
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("cheap");
-                    setDropDownOpen(false);
-                  }}
-                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
-                >
-                  Cheap
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("expensive");
-                    setDropDownOpen(false);
-                  }}
-                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
-                >
-                  Expensive
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("popular");
-                    setDropDownOpen(false);
-                  }}
-                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
-                >
-                  Popular
-                </button>
-              </div>
-            )}
           </div>
         </div>
 

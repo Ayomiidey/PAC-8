@@ -1,6 +1,8 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 
 interface FilterContexType {
+  filter: string;
+  setFilter: (query: string) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   selectedCategory: string;
@@ -23,10 +25,13 @@ export const FilterProvider: React.FC<{ children: ReactNode }> = ({
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
   const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
   const [keyword, setKeyword] = useState<string>("");
+  const [filter, setFilter] = useState<string>("all");
 
   return (
     <FilterContext.Provider
       value={{
+        filter,
+        setFilter,
         searchQuery,
         setSearchQuery,
         selectedCategory,

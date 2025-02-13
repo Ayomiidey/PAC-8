@@ -70,7 +70,7 @@ const Header = () => {
           <div className="mx-auto px-4 md:px-16 lg:px-24 py-4 flex justify-between items-center">
             <Link to="/">
               <div className="text-lg font-bold">
-                <img src={logoPac8} alt="Logo" className="h-[70px] w-auto" />
+                <img src={logoPac8} alt="Logo" className="h-[60px] w-auto" />
               </div>
             </Link>
 
@@ -97,9 +97,6 @@ const Header = () => {
           </div>
 
           <div className="flex items-center justify-center space-x-10 py-4 text-sm font-bold">
-            <Link to="/" className="hover:underline">
-              Home
-            </Link>
             <Link to="/products" className="hover:underline">
               Shop
             </Link>

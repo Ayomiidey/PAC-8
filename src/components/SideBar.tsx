@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface Product {
   category: string;
@@ -19,6 +19,8 @@ const SideBar: React.FC<SidebarProps> = ({
   setIsSidebarOpen,
 }) => {
   const {
+    filter,
+    setFilter,
     searchQuery,
     setSearchQuery,
     selectedCategory,
@@ -74,6 +76,13 @@ const SideBar: React.FC<SidebarProps> = ({
     }
   };
 
+  const handleFilterChange = (newFilter: string) => {
+    setFilter(newFilter);
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+  };
+
   const handleResetFilter = () => {
     setSearchQuery("");
     setSelectedCategory("");
@@ -126,28 +135,6 @@ const SideBar: React.FC<SidebarProps> = ({
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:static z-20`}
       >
-        <nav className="mb-2 lg:hidden">
-          <Link
-            to="/"
-            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
-            onClick={() => handleHome()}
-          >
-            HOME
-          </Link>
-          <Link
-            to="/products"
-            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
-          >
-            PRODUCTS
-          </Link>
-          <Link
-            to="/about"
-            className="block py-2 px-2  text-gray-700 hover:text-black hover:bg-gray-100 rounded"
-          >
-            ABOUT
-          </Link>
-        </nav>
-
         <section>
           <input
             type="text"
@@ -174,6 +161,55 @@ const SideBar: React.FC<SidebarProps> = ({
           </div>
 
           <section>
+            <h2 className="text-xl font-semibold mb-3">Filter</h2>
+            <label className="block">
+              <input
+                type="radio"
+                value="all"
+                checked={filter === "all"}
+                onChange={() => handleFilterChange("all")}
+                name="filter"
+                className="mr-2 w-[16px] h-[16px]"
+              />
+              All
+            </label>
+            <label className="block">
+              <input
+                type="radio"
+                value="cheap"
+                checked={filter === "cheap"}
+                onChange={() => handleFilterChange("cheap")}
+                name="filter"
+                className="mr-2 w-[16px] h-[16px]"
+              />
+              Price: Low to High
+            </label>
+            <label className="block">
+              <input
+                type="radio"
+                value="expensive"
+                checked={filter === "expensive"}
+                onChange={() => handleFilterChange("expensive")}
+                name="filter"
+                className="mr-2 w-[16px] h-[16px]"
+              />
+              Price: High to Low
+            </label>
+            <label className="block">
+              <input
+                type="radio"
+                value="popular"
+                checked={filter === "popular"}
+                onChange={() => handleFilterChange("popular")}
+                name="filter"
+                className="mr-2 w-[16px] h-[16px]"
+              />
+              Most Popular
+            </label>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">Categories</h2>
             {categories.map((category, index) => (
               <label key={index} className="block mb-2">
                 <input
