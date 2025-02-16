@@ -12,6 +12,8 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
+import LoginPage from "./components/LoginPage";
+// import SignUpPage from "./components/SignUpPage";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -46,6 +48,8 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/sign-in" element={<LoginPage />} />
+              {/* <Route path="/sign-up" element={<SignUpPage />} /> */}
             </Routes>
           </div>
         </div>
