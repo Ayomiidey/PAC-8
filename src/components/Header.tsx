@@ -48,7 +48,7 @@
 // };
 // export default Header;
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import logoPac8 from "../assets/images/logoPac8.jpg";
 import { useFilter } from "./FilterContext";
@@ -56,6 +56,8 @@ import SearchBar from "./SearchBar";
 import { useAppSelector } from "../redux/hooks";
 const Header = () => {
   const { searchQuery, setSearchQuery } = useFilter();
+
+  const navigate = useNavigate();
 
   const totalItem = useAppSelector((state) => state.cart.totalQuantity);
   return (
@@ -89,7 +91,21 @@ const Header = () => {
                   </span>
                 )}
               </Link>
-              <button className="hidden md:block">Login | Register</button>
+              <button className="hidden md:flex items-center text-black ">
+                <span
+                  onClick={() => navigate("/sign-in")}
+                  className="cursor-pointer"
+                >
+                  Login
+                </span>
+                <span className="text-gray-400">|</span>
+                <span
+                  onClick={() => navigate("/sign-up")}
+                  className="cursor-pointer"
+                >
+                  Register
+                </span>
+              </button>
               <button className="block md:hidden">
                 <FaUser />
               </button>
