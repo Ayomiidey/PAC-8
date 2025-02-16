@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -172,10 +172,13 @@ const SignUpForm = () => {
       </div>
 
       <div className="text-center text-sm text-muted-foreground">
-        Already have an account?{" "}
-        <a href="#" className="text-primary underline-offset-4 hover:underline">
+        Already have an account?
+        <Link
+          to={"/sign-in"}
+          className="text-primary underline-offset-4 hover:underline"
+        >
           Login
-        </a>
+        </Link>
       </div>
     </form>
   );
