@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 interface Cart {
   item: {
     id: number;
+    image: string;
     title: string;
     price: number;
     quantity: number;
