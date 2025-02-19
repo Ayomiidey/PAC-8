@@ -124,10 +124,10 @@
 //   }
 
 //   return (
-//     <div className="container mx-auto p-4">
+//     <div className="container mx-auto mb-4 p-4">
 //       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 //         <div className="lg:col-span-2">
-//           <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-2rem)]">
+//           <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-14rem)]">
 //             {/* Fixed Header */}
 //             <div className="sticky top-0 bg-white border-b border-gray-200 z-10">
 //               <div className="p-6">
@@ -289,11 +289,10 @@ const Cart = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto mb-5 p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="md:col-span-2 lg:col-span-2">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-2rem)]">
-            {/* Fixed Header */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-14rem)]">
             <div className="sticky top-0 bg-white border-b border-gray-200 z-10">
               <div className="p-6">
                 <h2 className="text-xl font-semibold flex items-center gap-2">
@@ -311,7 +310,6 @@ const Cart = () => {
                       key={cartItem.id}
                       className="flex flex-row items-center gap-4 p-4 bg-gray-50 rounded-lg transition-all hover:bg-gray-100"
                     >
-                      {/* Product Image */}
                       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-200 rounded-lg flex-shrink-0">
                         <img
                           src={cartItem.image}
@@ -320,7 +318,6 @@ const Cart = () => {
                         />
                       </div>
 
-                      {/* Product Details */}
                       <div className="flex-grow">
                         <h3 className="font-medium text-sm sm:text-lg">
                           {cartItem.title}
@@ -330,7 +327,6 @@ const Cart = () => {
                         </p>
                       </div>
 
-                      {/* Quantity and Remove Button */}
                       <div className="flex flex-col items-end gap-2">
                         <div className="flex items-center gap-2">
                           <button
@@ -372,7 +368,6 @@ const Cart = () => {
           </div>
         </div>
 
-        {/* Order Summary */}
         <div className="md:col-span-1">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden sticky top-4">
             <div className="p-6 border-b border-gray-200">
