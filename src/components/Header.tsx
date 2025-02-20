@@ -48,93 +48,6 @@
 // // };
 // // export default Header;
 
-// import { Link, useNavigate } from "react-router-dom";
-// import { FaShoppingCart, FaUser } from "react-icons/fa";
-// import logoPac8 from "../assets/images/logoPac8.jpg";
-// import { useFilter } from "./FilterContext";
-// import SearchBar from "./SearchBar";
-// import { useAppSelector } from "../redux/hooks";
-// const Header = () => {
-//   const { searchQuery, setSearchQuery } = useFilter();
-
-//   const navigate = useNavigate();
-
-//   const totalItem = useAppSelector((state) => state.cart.totalQuantity);
-//   return (
-//     <>
-//       <div className="fixed top-0 left-0 right-0 z-50">
-//         <div className="w-full h-12 text-center text-xs bg-purple-400 text-white flex flex-col justify-center items-center font-medium">
-//           <p>Place your order now, and we'll ship it out today!</p>
-//           <p>Fast, tracked, and express delivery options available.</p>
-//         </div>
-
-//         <nav className="bg-white border-b">
-//           <div className="mx-auto px-4 md:px-16 lg:px-24 py-4 flex justify-between items-center">
-//             <Link to="/">
-//               <div>
-//                 <img src={logoPac8} alt="Logo" className="h-[55px] w-auto" />
-//               </div>
-//             </Link>
-
-//             <div className="relative flex-1 mx-4">
-//               <SearchBar
-//                 searchQuery={searchQuery}
-//                 setSearchQuery={setSearchQuery}
-//               />
-//             </div>
-//             <div className="flex items-center space-x-4">
-//               <Link to="/cart" className="relative inline-block">
-//                 <FaShoppingCart className="text-lg" />
-//                 {totalItem > 0 && (
-//                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
-//                     {totalItem}
-//                   </span>
-//                 )}
-//               </Link>
-//               <button className="hidden md:flex items-center text-black ">
-//                 <span
-//                   onClick={() => navigate("/sign-in")}
-//                   className="cursor-pointer"
-//                 >
-//                   Login
-//                 </span>
-//                 <span className="text-gray-400">|</span>
-//                 <span
-//                   onClick={() => navigate("/sign-up")}
-//                   className="cursor-pointer"
-//                 >
-//                   Register
-//                 </span>
-//               </button>
-//               <button className="block md:hidden">
-//                 <FaUser />
-//               </button>
-//             </div>
-//           </div>
-
-//           <div className="flex items-center justify-center space-x-10 py-4 text-sm font-bold">
-//             <Link to="/products" className="hover:underline">
-//               Shop
-//             </Link>
-//             <Link to="/about" className="hover:underline">
-//               About Us
-//             </Link>
-//             <Link to="/contactUs" className="hover:underline">
-//               Contact Us
-//             </Link>
-//           </div>
-//         </nav>
-//       </div>
-
-//       <div className="pt-[168px]">
-//         {/* I had this div there so my content don't go inside my fixed header */}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Header;
-
 import { Link, useNavigate } from "react-router";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
@@ -151,7 +64,6 @@ const Header = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const totalItem = useAppSelector((state) => state.cart.totalQuantity);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
