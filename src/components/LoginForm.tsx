@@ -241,7 +241,11 @@
 // export default LoginForm;
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import {
+  GoogleLogin,
+  googleLogout,
+  CredentialResponse,
+} from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
@@ -250,10 +254,6 @@ interface GoogleUser {
   name: string;
   email: string;
   picture: string;
-}
-
-interface GoogleCredentialResponse {
-  credential: string;
 }
 
 const LoginForm = () => {
@@ -298,7 +298,11 @@ const LoginForm = () => {
     }
   };
 
-  const handleGoogleSuccess = async (response: GoogleCredentialResponse) => {
+  const handleGoogleSuccess = async (response: CredentialResponse) => {
+    if (!response.credential) {
+      setError("No credentials received from Google");
+      return;
+    }
     try {
       const decoded = jwtDecode<GoogleUser>(response.credential);
       setUser(decoded);
@@ -406,10 +410,10 @@ const LoginForm = () => {
             </div>
           </div>
 
-          {/* <GoogleLogin
+          <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={() => setError("Google login failed")}
-          /> */}
+          />
         </form>
       )}
 
